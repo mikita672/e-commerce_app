@@ -241,3 +241,15 @@ body {
     font-size: var(--font-size-lg);
     color: var(--primary-color);
 }
+
+.my-heading{
+    text-align: center;
+}
+
+.primary-color{
+    color: #5B21B6;
+}
+
+.secondary-color{
+    color: #dc2626;
+}

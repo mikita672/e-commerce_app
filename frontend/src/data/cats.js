@@ -266,7 +266,7 @@ const products = [
   },
   {
     productId: 30,
-    name: "Christmase Meowl",
+    name: "Christmas Meowl",
     description: "Happy Holidays!",
     price: 6.0,
     popularity: "60",
