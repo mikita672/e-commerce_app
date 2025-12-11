@@ -1,7 +1,6 @@
 import cats from "../data/cats";
 import PageHeading from "./PageHeading";
 import ProductListnigs from "./ProductListnigs";
-import "./Home.css";
 
 export default function Home() {
   const isActive = Math.random() > 0.5;
