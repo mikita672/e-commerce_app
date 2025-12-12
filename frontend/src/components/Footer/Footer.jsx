@@ -1,19 +1,21 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import styles from "./footer.module.css";
+import styled from "styled-components";
+import EasyButton from "../EasyButton";
+
+const H1 = styled.h1`
+  color: #5b21b6;
+  text-align: center;
+`;
 
 export default function Footer() {
   const isActive = Math.random() > 0.5;
 
   return (
     <>
-      <h1
-        className={`${styles["my-heading"]} my-heading ${
-          isActive ? styles["primary-color"] : styles["secondary-color"]
-        }`}
-      >
-        Demo of Global CSS Scope from Footer
-      </h1>
+      <H1>Demo of Styled Components from Footer</H1>
+      <EasyButton>Submit</EasyButton>
       <footer className={styles.footer}>
         Built with
         <FontAwesomeIcon

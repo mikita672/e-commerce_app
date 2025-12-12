@@ -1,6 +1,7 @@
 import cats from "../data/cats";
 import PageHeading from "./PageHeading";
 import ProductListnigs from "./ProductListnigs";
+import EasyButton from "./EasyButton";
 
 export default function Home() {
   const isActive = Math.random() > 0.5;
@@ -14,6 +15,7 @@ export default function Home() {
       >
         Demo of Global CSS Scope from Home
       </h1>
+      <EasyButton>Home</EasyButton>
       <div className="home-container">
         <PageHeading title="Explore Those Cute Cats!">
           Choose the cat and download the picture!
