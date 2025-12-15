@@ -14,8 +14,6 @@ export default function Footer() {
 
   return (
     <>
-      <H1>Demo of Styled Components from Footer</H1>
-      <EasyButton $primary>Submit</EasyButton>
       <footer className={styles.footer}>
         Built with
         <FontAwesomeIcon

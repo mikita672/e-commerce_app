@@ -8,14 +8,6 @@ export default function Home() {
 
   return (
     <>
-      <h1
-        className={`my-heading ${
-          isActive ? "primary-color" : "secondary-color"
-        }`}
-      >
-        Demo of Global CSS Scope from Home
-      </h1>
-      <EasyButton>Home</EasyButton>
       <div className="home-container">
         <PageHeading title="Explore Those Cute Cats!">
           Choose the cat and download the picture!
