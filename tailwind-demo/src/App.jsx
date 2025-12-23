@@ -50,8 +50,8 @@ function App() {
       <p className="text-red-600 sm:text-blue-600 md:text-emerald-600 lg:text-yellow-500 xl:text-purple-600 m-4">
         Resize the screen to see changes!
       </p>
-      <div className="bg-green-300 border border-green-600 p-4 rounded-lg m-4">
-        Border demo
+      <div className="bg-[#ff5733] h-[165px] w-[300px] border border-green-600 p-4 rounded-lg m-4 flex items-center justify-center">
+        Custom Width, Height and Color
       </div>
     </>
   );
