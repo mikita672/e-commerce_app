@@ -38,6 +38,21 @@ function App() {
           Read More
         </button>
       </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-4">
+        <div className="bg-blue-300 p-4">1</div>
+        <div className="bg-blue-300 p-4">2</div>
+        <div className="bg-blue-300 p-4">3</div>
+        <div className="bg-blue-300 p-4">4</div>
+      </div>
+      <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-4xl m-4">
+        I scale on different screens!
+      </p>
+      <p className="text-red-600 sm:text-blue-600 md:text-emerald-600 lg:text-yellow-500 xl:text-purple-600 m-4">
+        Resize the screen to see changes!
+      </p>
+      <div className="bg-green-300 border border-green-600 p-4 rounded-lg m-4">
+        Border demo
+      </div>
     </>
   );
 }
