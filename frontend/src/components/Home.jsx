@@ -4,12 +4,10 @@ import ProductListnigs from "./ProductListnigs";
 import Snowfall from "react-snowfall";
 
 export default function Home() {
-  const isActive = Math.random() > 0.5;
-
   return (
     <>
       <Snowfall color="#00ccff" />
-      <div className="home-container">
+      <div className="max-w-6xl mx-auto px-6 py-8">
         <PageHeading title="Explore Those Cute Cats!">
           Choose the cat and download the picture!
         </PageHeading>
