@@ -53,6 +53,12 @@ function App() {
       <div className="bg-[#ff5733] h-[165px] w-[300px] border border-green-600 p-4 rounded-lg m-4 flex items-center justify-center">
         Custom Width, Height and Color
       </div>
+      <div className="bg-mint-500 text-mint-500 h-[165px] w-[300px] border border-green-600 p-4 rounded-lg m-4 flex items-center justify-center">
+        Theme variables
+      </div>
+      <div className="bg-primary font-display h-[165px] w-[300px] border border-green-600 p-4 rounded-lg m-4 flex items-center justify-center">
+        Font family and Color variables
+      </div>
     </>
   );
 }
