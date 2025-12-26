@@ -1,6 +1,6 @@
 import cats from "../data/cats";
 import PageHeading from "./PageHeading";
-import ProductListnigs from "./ProductListnigs";
+import ProductListings from "./ProductListings";
 import Snowfall from "react-snowfall";
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
         <PageHeading title="Explore Those Cute Cats!">
           Choose the cat and download the picture!
         </PageHeading>
-        <ProductListnigs products={cats} />
+        <ProductListings products={cats} />
       </div>
     </>
   );

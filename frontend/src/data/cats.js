@@ -1,35 +1,33 @@
-import absolutecat from "../assets/cats/absolutecat.jpg"
-import arabcat from "../assets/cats/arabcat.jpg"
-import aurameowl from "../assets/cats/aurameowl.jpg"
-import bananacat from "../assets/cats/bananacat.jpg"
-import brainrotcat from "../assets/cats/brainrotcat.jpg"
-import burgercat from "../assets/cats/burgercat.jpg"
-import businesscat from "../assets/cats/businesscat.jpg"
-import catwithoranges from "../assets/cats/catwithoranges.jpg"
-import chineesecat from "../assets/cats/chineesecat.jpg"
-import christmascat from "../assets/cats/christmascat.jpg"
-import christmasmeowl from "../assets/cats/christmasmeowl.jpg"
-import crazycat from "../assets/cats/crazycat.jpg"
-import deercat from "../assets/cats/deercat.jpg"
-import fbicat from "../assets/cats/fbicat.jpg"
-import fnafcat from "../assets/cats/fnafcat.jpg"
-import frenchcat from "../assets/cats/frenchcat.jpg"
-import glorycat from "../assets/cats/glorycat.jpg"
-import jogacat from "../assets/cats/jogacat.jpg"
-import knightcat from "../assets/cats/knightcat.jpg"
-import mccat from "../assets/cats/mccat.jpg"
-import oliviecat from "../assets/cats/oliviecat.jpg"
-import punkcat from "../assets/cats/punkcat.jpg"
-import rabbitcat from "../assets/cats/rabbitcat.jpg"
-import richcat from "../assets/cats/richcat.jpg"
-import sk8cat from "../assets/cats/sk8cat.jpg"
-import smokingcat from "../assets/cats/smokingcat.jpg"
-import suncat from "../assets/cats/suncat.jpg"
-import swagcat from "../assets/cats/swagcat.jpg"
-import sybaucat from "../assets/cats/sybaucat.jpg"
-import warcat from "../assets/cats/warcat.jpg"
-
-
+import absolutecat from "../assets/cats/absolutecat.jpg";
+import arabcat from "../assets/cats/arabcat.jpg";
+import aurameowl from "../assets/cats/aurameowl.jpg";
+import bananacat from "../assets/cats/bananacat.jpg";
+import brainrotcat from "../assets/cats/brainrotcat.jpg";
+import burgercat from "../assets/cats/burgercat.jpg";
+import businesscat from "../assets/cats/businesscat.jpg";
+import catwithoranges from "../assets/cats/catwithoranges.jpg";
+import chinesecat from "../assets/cats/chinesecat.jpg";
+import christmascat from "../assets/cats/christmascat.jpg";
+import christmasmeowl from "../assets/cats/christmasmeowl.jpg";
+import crazycat from "../assets/cats/crazycat.jpg";
+import deercat from "../assets/cats/deercat.jpg";
+import fbicat from "../assets/cats/fbicat.jpg";
+import fnafcat from "../assets/cats/fnafcat.jpg";
+import frenchcat from "../assets/cats/frenchcat.jpg";
+import glorycat from "../assets/cats/glorycat.jpg";
+import jogacat from "../assets/cats/jogacat.jpg";
+import knightcat from "../assets/cats/knightcat.jpg";
+import mccat from "../assets/cats/mccat.jpg";
+import oliviecat from "../assets/cats/oliviecat.jpg";
+import punkcat from "../assets/cats/punkcat.jpg";
+import rabbitcat from "../assets/cats/rabbitcat.jpg";
+import richcat from "../assets/cats/richcat.jpg";
+import sk8cat from "../assets/cats/sk8cat.jpg";
+import smokingcat from "../assets/cats/smokingcat.jpg";
+import suncat from "../assets/cats/suncat.jpg";
+import swagcat from "../assets/cats/swagcat.jpg";
+import sybaucat from "../assets/cats/sybaucat.jpg";
+import warcat from "../assets/cats/warcat.jpg";
 
 const products = [
   {
@@ -98,11 +96,11 @@ const products = [
   },
   {
     productId: 9,
-    name: "Chinees Cat",
+    name: "Chinese Cat",
     description: "with noodles",
     price: 8.0,
     popularity: "100",
-    imageUrl: chineesecat,
+    imageUrl: chinesecat,
   },
   {
     productId: 10,
@@ -110,7 +108,7 @@ const products = [
     description: "Merry Christmas",
     price: 5.0,
     popularity: "65",
-    imageUrl:christmascat,
+    imageUrl: christmascat,
   },
   {
     productId: 11,
