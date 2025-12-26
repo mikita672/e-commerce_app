@@ -15,7 +15,7 @@ import fbicat from "../assets/cats/fbicat.jpg";
 import fnafcat from "../assets/cats/fnafcat.jpg";
 import frenchcat from "../assets/cats/frenchcat.jpg";
 import glorycat from "../assets/cats/glorycat.jpg";
-import jogacat from "../assets/cats/jogacat.jpg";
+import yogacat from "../assets/cats/yogacat.jpg";
 import knightcat from "../assets/cats/knightcat.jpg";
 import mccat from "../assets/cats/mccat.jpg";
 import oliviecat from "../assets/cats/oliviecat.jpg";
@@ -160,11 +160,11 @@ const products = [
   },
   {
     productId: 17,
-    name: "Joga Cat",
+    name: "Yoga Cat",
     description: "Meow",
     price: 6.0,
     popularity: "60",
-    imageUrl: jogacat,
+    imageUrl: yogacat,
   },
   {
     productId: 18,
