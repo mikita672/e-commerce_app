@@ -1,6 +1,6 @@
 import ProductCard from "./ProductCard";
 
-function ProductListnigs({ products }) {
+function ProductListings({ products }) {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-8 gap-x-6 py-12">
@@ -18,4 +18,4 @@ function ProductListnigs({ products }) {
   );
 }
 
-export default ProductListnigs;
+export default ProductListings;
