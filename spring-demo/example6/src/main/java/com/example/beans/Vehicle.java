@@ -2,7 +2,6 @@ package com.example.beans;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import jakarta.annotation.PostConstruct;
 
 @Component
@@ -10,10 +9,12 @@ public class Vehicle {
     private String name;
 
     // @Autowired
-    private Engine engine;
+    private final Engine engine;
 
-    public Vehicle() {
+    @Autowired
+    public Vehicle(Engine engine) {
         System.out.println("Vehicle bean created by Spring");
+        this.engine = engine;
     }
 
     public String getName() {
@@ -28,10 +29,10 @@ public class Vehicle {
         return engine;
     }
 
-    @Autowired
-    public void setEngine(Engine engine) {
-        this.engine = engine;
-    }
+    // @Autowired
+    // public void setEngine(Engine engine) {
+    // this.engine = engine;
+    // }
 
     public void sayHello() {
         System.out.println("Printing Hello from Component Vehicle Bean");
