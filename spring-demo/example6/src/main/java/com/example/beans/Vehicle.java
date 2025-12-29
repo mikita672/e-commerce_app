@@ -9,7 +9,7 @@ import jakarta.annotation.PostConstruct;
 public class Vehicle {
     private String name;
 
-    @Autowired
+    // @Autowired
     private Engine engine;
 
     public Vehicle() {
@@ -28,6 +28,7 @@ public class Vehicle {
         return engine;
     }
 
+    @Autowired
     public void setEngine(Engine engine) {
         this.engine = engine;
     }
