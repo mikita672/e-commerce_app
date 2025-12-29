@@ -10,6 +10,7 @@ public class SpringMain {
     public static void main(String[] args) {
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
         CoffeeShop shop = context.getBean(CoffeeShop.class);
+        @SuppressWarnings("unused")
         Coffee coffee = context.getBean(Coffee.class);
         System.out.println("Making coffee: " + shop.getCoffee().makeCofee());
 
