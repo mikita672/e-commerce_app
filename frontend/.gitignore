@@ -39,3 +39,5 @@ typings/
 .yarn-integrity
 
 .vscode
+
+.env

@@ -2,6 +2,7 @@ import cats from "../data/cats";
 import PageHeading from "./PageHeading";
 import ProductListings from "./ProductListings";
 import Snowfall from "react-snowfall";
+import apiClient from "../api/apiClient";
 
 export default function Home() {
   return (
