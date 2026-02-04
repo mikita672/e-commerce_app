@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mdzvtt.ecommerce.repository.ProductRepository;
+import com.mdzvtt.ecommerce.service.IProductService;
 import com.mdzvtt.ecommerce.entity.Product;
 
 import lombok.RequiredArgsConstructor;
@@ -15,11 +15,11 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("api/v1/products")
 @RequiredArgsConstructor
 public class ProductController {
-    private final ProductRepository productRepository;
+    private final IProductService iProductService;
 
     @GetMapping
     public List<Product> getProducts() {
-        List<Product> productList = productRepository.findAll();
+        List<Product> productList = iProductService.getProducts();
         return productList;
     }
 }
