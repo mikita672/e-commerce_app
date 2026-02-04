@@ -2,8 +2,8 @@ package com.mdzvtt.ecommerce.service;
 
 import java.util.List;
 
-import com.mdzvtt.ecommerce.entity.Product;
+import com.mdzvtt.ecommerce.dto.ProductDto;
 
 public interface IProductService {
-    List<Product> getProducts();
+    List<ProductDto> getProducts();
 }

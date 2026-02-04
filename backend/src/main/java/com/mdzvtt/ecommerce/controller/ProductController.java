@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mdzvtt.ecommerce.service.IProductService;
-import com.mdzvtt.ecommerce.entity.Product;
+import com.mdzvtt.ecommerce.dto.ProductDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -18,8 +18,8 @@ public class ProductController {
     private final IProductService iProductService;
 
     @GetMapping
-    public List<Product> getProducts() {
-        List<Product> productList = iProductService.getProducts();
+    public List<ProductDto> getProducts() {
+        List<ProductDto> productList = iProductService.getProducts();
         return productList;
     }
 }
