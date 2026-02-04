@@ -1,39 +1,51 @@
 package com.mdzvtt.ecommerce.entity;
 
-import java.math.BigDecimal;
-import java.time.Instant;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
+
+import java.math.BigDecimal;
+import java.time.Instant;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "products")
+@Table(name = "PRODUCTS")
 public class Product {
     @Id
-    @Column(name = "product_id", nullable = false)
-    private long productId;
-    @Column(name = "name", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PRODUCT_ID", nullable = false)
+    private Long id;
+
+    @Column(name = "NAME", nullable = false, length = 250)
     private String name;
-    @Column(name = "description", nullable = false)
+
+    @Column(name = "DESCRIPTION", nullable = false, length = 500)
     private String description;
-    @Column(name = "price", nullable = false)
+
+    @Column(name = "PRICE", nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
-    @Column(name = "popularity", nullable = false)
+
+    @Column(name = "POPULARITY", nullable = false)
     private Integer popularity;
-    @Column(name = "image_url")
+
+    @Column(name = "IMAGE_URL", length = 500)
     private String imageUrl;
-    @Column(name = "created_at", nullable = false)
+
+    @ColumnDefault("CURRENT_TIMESTAMP")
+    @Column(name = "CREATED_AT", nullable = false)
     private Instant createdAt;
-    @Column(name = "created_by", nullable = false)
+
+    @Column(name = "CREATED_BY", nullable = false, length = 20)
     private String createdBy;
-    @Column(name = "updated_at")
+
+    @ColumnDefault("NULL")
+    @Column(name = "UPDATED_AT")
     private Instant updatedAt;
-    @Column(name = "updated_by")
+
+    @ColumnDefault("NULL")
+    @Column(name = "UPDATED_BY", length = 20)
     private String updatedBy;
+
 }
