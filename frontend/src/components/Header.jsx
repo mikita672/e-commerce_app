@@ -5,14 +5,20 @@ import {
   faSun,
   faMoon,
 } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Header() {
   const [theme, setTheme] = useState(() => {
-    return document.documentElement.classList.contains("dark")
-      ? "dark"
-      : "light";
+    return localStorage.getItem("theme") === "dark" ? "dark" : "light";
   });
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => {
@@ -22,6 +28,7 @@ export default function Header() {
       } else {
         document.documentElement.classList.remove("dark");
       }
+      localStorage.setItem("theme", newTheme);
       return newTheme;
     });
   };
