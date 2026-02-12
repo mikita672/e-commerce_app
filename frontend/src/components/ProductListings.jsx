@@ -1,11 +1,13 @@
 import React, { useMemo, useState } from "react";
+import { useLoaderData, useLocation } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import SearchBox from "./SearchBox";
 import Dropdown from "./Dropdown";
 
 const sortList = ["Popularity", "Price Low to High", "Price High to Low"];
 
-export default function ProductListings({ products }) {
+export default function ProductListings() {
+  const products = useLoaderData();
   const [searchText, setSearchText] = useState("");
   const [selectedSort, setselectedSort] = useState("Popularity");
 

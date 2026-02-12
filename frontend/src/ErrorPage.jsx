@@ -16,18 +16,17 @@ export default function ErrorPage() {
   return (
     <div className="flex flex-col min-h-245">
       <Header />
-      {/* Main Content */}
       <main className="grow">
         <div className="py-12 bg-normalbg dark:bg-darkbg font-primary">
           <div className="max-w-4xl mx-auto px-4">
-            <PageTitle title={errorTitle} />
+            <PageTitle title={routeError.status} />
           </div>
           <div className="text-center text-gray-600 dark:text-lighter flex flex-col items-center">
             <p className="max-w-xl px-2 mx-auto leading-6 mb-4">
               {errorMessage}
             </p>
             <img
-              src={errorImage}
+              src={routeError.data}
               alt="Error"
               className="w-full max-w-xl mx-auto mb-6"
             />
