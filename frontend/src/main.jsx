@@ -15,13 +15,14 @@ import Cart from "./components/Cart.jsx";
 import Home from "./components/Home.jsx";
 import ErrorPage from "./ErrorPage.jsx";
 import { productsLoader } from "./components/Home.jsx";
+import { contactAction } from "./components/Contact.jsx";
 
 const routeDefenitions = createRoutesFromElements(
   <Route path="/" element={<App />} errorElement={<ErrorPage />}>
     <Route index element={<Home />} loader={productsLoader} />
     <Route path="/home" element={<Home />} loader={productsLoader} />
     <Route path="/about" element={<About />} />
-    <Route path="/contact" element={<Contact />} />
+    <Route path="/contact" element={<Contact />} action={contactAction} />
     <Route path="/login" element={<Login />} />
     <Route path="/cart" element={<Cart />} />
   </Route>,
