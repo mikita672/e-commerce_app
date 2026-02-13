@@ -16,6 +16,7 @@ import Login from "./components/Login.jsx";
 import Cart from "./components/Cart.jsx";
 import Home from "./components/Home.jsx";
 import ErrorPage from "./ErrorPage.jsx";
+import ProductDetail from "./ProductDetail.jsx";
 import { productsLoader } from "./components/Home.jsx";
 import { contactAction } from "./components/Contact.jsx";
 
@@ -27,6 +28,7 @@ const routeDefenitions = createRoutesFromElements(
     <Route path="/contact" element={<Contact />} action={contactAction} />
     <Route path="/login" element={<Login />} />
     <Route path="/cart" element={<Cart />} />
+    <Route path="/products/:productId" element={<ProductDetail />} />
   </Route>,
 );
 
