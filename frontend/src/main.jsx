@@ -6,6 +6,8 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
+import { ToastContainer, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 import App from "./App.jsx";
 import About from "./components/About.jsx";
@@ -33,5 +35,15 @@ const appRouter = createBrowserRouter(routeDefenitions);
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={appRouter} />
+    <ToastContainer
+      position="top-center"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      draggable
+      pauseOnHover
+      theme={localStorage.getItem("theme") === "dark" ? "dark" : "light"}
+      transition={Bounce}
+    />
   </StrictMode>,
 );
