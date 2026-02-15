@@ -29,5 +29,4 @@ public class ContactController {
                     .body("An error occured. Please try again or contact Dev Team");
         }
     }
-
 }
