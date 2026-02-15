@@ -7,6 +7,9 @@ import com.mdzvtt.ecommerce.dto.ContactRequestDto;
 import com.mdzvtt.ecommerce.service.IContactService;
 
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -17,12 +20,13 @@ public class ContactController {
     private final IContactService iContactService;
 
     @PostMapping
-    public String saveContact(@RequestBody ContactRequestDto contactRequestDto) {
+    public ResponseEntity<String> saveContact(@RequestBody ContactRequestDto contactRequestDto) {
         boolean isSaved = iContactService.saveContact(contactRequestDto);
         if (isSaved) {
-            return "Request processed successfully";
+            return ResponseEntity.status(HttpStatus.CREATED).body("Request processed successfully");
         } else {
-            return "An error occured. Please try again or contact Dev Team";
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("An error occured. Please try again or contact Dev Team");
         }
     }
 
