@@ -1,0 +1,14 @@
+package com.mdzvtt.ecommerce.config;
+
+import java.util.Optional;
+
+import org.springframework.data.domain.AuditorAware;
+import org.springframework.stereotype.Component;
+
+@Component("AuditorAwareImpl")
+public class AuditorAwareImpl implements AuditorAware<String> {
+    @Override
+    public Optional<String> getCurrentAuditor() {
+        return Optional.of("Anonymous user");
+    }
+}
