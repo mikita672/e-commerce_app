@@ -1,4 +1,4 @@
-package com.mdzvtt.ecomerce.exception;
+package com.mdzvtt.ecommerce.exception;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -26,13 +26,12 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, String>> handleValidationExceptions(MethodArgumentNotValidException exception,
-            WebRequest webRequest) {
+    public ResponseEntity<Map<String, String>> handleValidationExceptions(
+            MethodArgumentNotValidException exception) {
 
         Map<String, String> errors = new HashMap<>();
-        List<FieldError> fieldErrorsList = exception.getBindingResult().getFieldErrors();
-        fieldErrorsList.forEach(error -> errors.put(error.getField(), error.getDefaultMessage()));
-
+        List<FieldError> fieldErrorList = exception.getBindingResult().getFieldErrors();
+        fieldErrorList.forEach(error -> errors.put(error.getField(), error.getDefaultMessage()));
         return ResponseEntity.badRequest().body(errors);
     }
 }
