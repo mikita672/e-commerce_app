@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mdzvtt.ecommerce.dto.ContactRequestDto;
 import com.mdzvtt.ecommerce.service.IContactService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,7 @@ public class ContactController {
     private final IContactService iContactService;
 
     @PostMapping
-    public ResponseEntity<String> saveContact(@RequestBody ContactRequestDto contactRequestDto) {
+    public ResponseEntity<String> saveContact(@Valid @RequestBody ContactRequestDto contactRequestDto) {
         iContactService.saveContact(contactRequestDto);
         return ResponseEntity.status(HttpStatus.CREATED).body("Request processed successfully");
     }
