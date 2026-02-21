@@ -23,6 +23,6 @@ public class ContactRequestDto {
     private String mobileNumber;
 
     @NotBlank(message = "Message cannot be empty")
-    @Size(min = 5, max = 500, message = "Messsage must be between 5 and 500 characters")
+    @Size(min = 5, max = 500, message = "Message must be between 5 and 500 characters")
     private String message;
 }
