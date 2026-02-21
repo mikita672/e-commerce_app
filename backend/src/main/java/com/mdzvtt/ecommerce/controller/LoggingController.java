@@ -18,11 +18,11 @@ public class LoggingController {
 
     @GetMapping
     public ResponseEntity<String> testLogging() {
-        log.trace("TRACE: this is a very detaile trace log.");
-        log.debug("TRACE: this is a very detaile debug log.");
-        log.info("TRACE: this is a very detaile info log.");
-        log.warn("TRACE: this is a very detailewarne log.");
-        log.error("TRACE: this is a very detailerrorce log.");
+        log.trace("TRACE: this is a very detailed trace log.");
+        log.debug("DEBUG: this is a very detailed debug log.");
+        log.info("INFO: this is a very detailed info log.");
+        log.warn("WARN: this is a very detailed warn log.");
+        log.error("ERROR: this is a very detailed error log.");
 
         return ResponseEntity.ok().body("Logging tested successfully");
     }
