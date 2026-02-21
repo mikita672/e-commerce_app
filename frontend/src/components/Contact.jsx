@@ -169,7 +169,7 @@ export async function contactAction({ request, params }) {
       error.response?.data?.errorMessage ||
         error.message ||
         "Failed to submit your message. Please try again.",
-      { status: error.status || 500 },
+      { status: error.response?.status || 500 },
     );
   }
 }
