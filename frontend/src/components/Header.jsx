@@ -7,14 +7,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { CartContext } from "../store/cart-context";
+import { useCart } from "../store/cart-context";
 
 export default function Header() {
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") === "dark" ? "dark" : "light";
   });
 
-  const { totalQuantity } = useContext(CartContext);
+  const { totalQuantity } = useCart();
 
   useEffect(() => {
     if (theme === "dark") {
