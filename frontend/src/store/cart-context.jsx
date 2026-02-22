@@ -1,29 +1,54 @@
-import {
-  createContext,
-  useState,
-  useEffect,
-  useContext,
-  useReducer,
-} from "react";
+import { createContext, useEffect, useContext, useReducer } from "react";
 
 export const CartContext = createContext();
 export const useCart = () => useContext(CartContext);
 
-export const CartProvider = ({ children }) => {
-  const normalizeItem = (item) => ({
-    ...item,
-    productId: item.productId || item.id || item._id,
-  });
+const ADD_TO_CART = "ADD_TO_CART";
+const REMOVE_FROM_CART = "REMOVE_FROM_CART";
+const CLEAR_CART = "CLEAR_CART";
 
-  const [cart, setCart] = useState(() => {
+const cartReducer = (state, action) => {
+  switch (action.type) {
+    case ADD_TO_CART: {
+      const { product, quantity } = action.payload;
+      const productId = product.id || product._id;
+      const existingItem = state.find(
+        (item) => (item.id || item._id) === productId,
+      );
+
+      if (existingItem) {
+        return state.map((item) =>
+          (item.id || item._id) === productId
+            ? { ...item, quantity: item.quantity + quantity }
+            : item,
+        );
+      }
+
+      return [...state, { ...product, quantity }];
+    }
+    case REMOVE_FROM_CART:
+      return state.filter(
+        (item) => (item.id || item._id) !== action.payload.productId,
+      );
+    case CLEAR_CART:
+      return [];
+    default:
+      return state;
+  }
+};
+
+export const CartProvider = ({ children }) => {
+  const initialCartState = (() => {
     try {
       const storedCart = localStorage.getItem("cart");
-      return storedCart ? JSON.parse(storedCart).map(normalizeItem) : [];
+      return storedCart ? JSON.parse(storedCart) : [];
     } catch (error) {
-      console.error("Failed to parse cart from localStorage:", error);
+      console.error("Failed to parse cart from localStorage: ", error);
       return [];
     }
-  });
+  })();
+
+  const [cart, dispatch] = useReducer(cartReducer, initialCartState);
 
   useEffect(() => {
     try {
@@ -34,40 +59,28 @@ export const CartProvider = ({ children }) => {
   }, [cart]);
 
   const addToCart = (product, quantity) => {
-    const productId = product.productId || product.id || product._id;
-
-    setCart((prevCart) => {
-      const existingItem = prevCart.find(
-        (item) => item.productId === productId,
-      );
-
-      if (existingItem) {
-        return prevCart.map((item) =>
-          item.productId === productId
-            ? { ...item, quantity: item.quantity + quantity }
-            : item,
-        );
-      }
-
-      return [...prevCart, { ...product, productId, quantity }];
-    });
+    dispatch({ type: ADD_TO_CART, payload: { product, quantity } });
   };
 
   const removeFromCart = (productId) => {
-    setCart((prevCart) =>
-      prevCart.filter((item) => item.productId !== productId),
-    );
+    dispatch({ type: REMOVE_FROM_CART, payload: { productId } });
   };
 
   const clearCart = () => {
-    setCart([]);
+    dispatch({ type: CLEAR_CART });
   };
 
   const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, clearCart, totalQuantity }}
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        clearCart,
+        totalQuantity,
+      }}
     >
       {children}
     </CartContext.Provider>

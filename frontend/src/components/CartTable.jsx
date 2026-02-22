@@ -11,7 +11,7 @@ export default function CartTable() {
     .toFixed(2);
 
   const updateCartQuantity = (productId, quantity) => {
-    const product = cart.find((item) => item.productId === productId);
+    const product = cart.find((item) => (item.id || item._id) === productId);
     addToCart(product, quantity - (product?.quantity || 0));
   };
 
@@ -29,12 +29,12 @@ export default function CartTable() {
         <tbody className="divide-y divide-primary dark:divide-light">
           {cart.map((item) => (
             <tr
-              key={item.productId}
+              key={item.id || item._id}
               className="text-sm sm:text-base text-primary dark:text-light text-center"
             >
               <td className="px-4 sm:px-6 py-4 flex items-center">
                 <Link
-                  to={`/products/${item.productId}`}
+                  to={`/products/${item.id || item._id}`}
                   state={{ product: item }}
                   className="flex items-center"
                 >
@@ -55,7 +55,7 @@ export default function CartTable() {
                   value={item.quantity}
                   onChange={(e) =>
                     updateCartQuantity(
-                      item.productId,
+                      item.id || item._id,
                       parseInt(e.target.value, 10) || 1,
                     )
                   }
@@ -68,7 +68,7 @@ export default function CartTable() {
               <td className="px-4 sm:px-6 py-4">
                 <button
                   aria-label="delete-item"
-                  onClick={() => removeFromCart(item.productId)}
+                  onClick={() => removeFromCart(item.id || item._id)}
                   className="text-primary dark:text-red-400 border border-primary dark:border-red-400 p-2 rounded hover:bg-lighter dark:hover:bg-gray-700"
                 >
                   <FontAwesomeIcon icon={faTimes} />
