@@ -29,7 +29,7 @@ public class SecurityConfig {
     private final List<String> publicPaths;
 
     @Bean
-    SecurityFilterChain defauSecurityFilterChain(HttpSecurity http) throws Exception {
+    SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf(csrfConfig -> csrfConfig.disable())
                 .cors(corsConfig -> corsConfig.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(
