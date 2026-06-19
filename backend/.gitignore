@@ -199,3 +199,5 @@ README.html
 *.iml
 .idea
 .exercism
+
+src/main/java/com/mdzvtt/ecommerce/constants/ApplicationConstants.java
