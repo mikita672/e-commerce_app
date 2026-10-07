@@ -25,11 +25,18 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.beans.factory.annotation.Value;
+
 @Configuration
-@EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
     private final List<String> publicPaths;
+
+    @Value("${spring.security.user.name}")
+    private String adminUsername;
+
+    @Value("${spring.security.user.password}")
+    private String adminPassword;
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
@@ -58,14 +65,11 @@ public class SecurityConfig {
     }
 
     @Bean
-    public UserDetailsService userDetailsService() {
-        var user1 = User.builder().username("user")
-                .password("$2a$12$q75jVuPa9Y8LrgCn5HJ5xuCdC1il.ux.4lwR0sIWns4S1bB/Hz3xK").roles("USER").build();
-        var user2 = User.builder().username("admin")
-                .password("$2a$12$MYK824iQuJQpj771nph16uFp30.ZQAKR4DP7OjwHyY7RpXV3OiZ76").roles("USER", "ADMIN")
-                .build();
+    public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
+        var admin = User.builder().username(adminUsername).password(passwordEncoder.encode(adminPassword))
+                .roles("USER", "ADMIN").build();
 
-        return new InMemoryUserDetailsManager(user1, user2);
+        return new InMemoryUserDetailsManager(admin);
     }
 
     @Bean

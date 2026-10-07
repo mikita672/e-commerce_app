@@ -201,3 +201,5 @@ README.html
 .exercism
 
 src/main/java/com/mdzvtt/ecommerce/constants/ApplicationConstants.java
+
+.direnv/
