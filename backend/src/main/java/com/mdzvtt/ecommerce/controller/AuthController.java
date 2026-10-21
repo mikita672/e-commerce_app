@@ -7,12 +7,14 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mdzvtt.ecommerce.dto.LoginRequestDto;
 import com.mdzvtt.ecommerce.dto.LoginResponseDto;
+import com.mdzvtt.ecommerce.dto.UserDto;
 import com.mdzvtt.ecommerce.util.JwtUtil;
 
 import lombok.RequiredArgsConstructor;
@@ -30,11 +32,15 @@ public class AuthController {
         try {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(loginRequestDto.username(), loginRequestDto.password()));
+            var loggedInUser = (User) authentication.getPrincipal();
+            var userDto = new UserDto();
+            userDto.setName(loggedInUser.getUsername());
+            String jwtToken = jwtUtil.genereateJwtToken(authentication);
 
             jwtUtil.genereateJwtToken(authentication);
 
             return ResponseEntity.status(HttpStatus.OK)
-                    .body(new LoginResponseDto(HttpStatus.OK.getReasonPhrase(), null, null));
+                    .body(new LoginResponseDto(HttpStatus.OK.getReasonPhrase(), userDto, null));
         } catch (BadCredentialsException ex) {
             return buildErrorResponse(HttpStatus.UNAUTHORIZED, "Invalid username or password");
         } catch (AuthenticationException ex) {
