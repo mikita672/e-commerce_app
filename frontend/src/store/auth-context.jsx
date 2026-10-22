@@ -6,12 +6,12 @@ export const useAuth = () => useContext(AuthContext);
 const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 const LOGOUT = "LOGOUT";
 
-const authReducer = (prevState, action) => {
+const authReducer = (state, action) => {
   switch (action.type) {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        jwtToken: action.payload.jwtTokenm,
+        jwtToken: action.payload.jwtToken,
         user: action.payload.user,
         isAuthenticated: true,
       };

@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import apiClient from "../api/apiClient";
 import { toast } from "react-toastify";
+import { useAuth } from "../store/auth-context";
 
 export default function Login() {
   const actionData = useActionData();
@@ -16,8 +17,11 @@ export default function Login() {
   const isSubmitting = navigation.state === "submitting";
   const navigate = useNavigate();
 
+  const { loginSuccess } = useAuth();
+
   useEffect(() => {
     if (actionData?.success) {
+      loginSuccess(actionData.jwtToken, actionData.user);
       navigate("/home");
     } else if (actionData?.error) {
       toast.error(actionData.error.message || "Login failed");
@@ -109,11 +113,11 @@ export async function loginAction({ request }) {
         error: { message: "Invalid username or password" },
       };
     }
+    throw new Response(
+      error.response?.data?.message ||
+        error.message ||
+        "Failed to login. Please try again",
+      { status: error.response?.status || 500 },
+    );
   }
-  throw new Response(
-    error.response?.data?.message ||
-      error.message ||
-      "Failed to login. Please try again",
-    { status: error.response?.status || 500 },
-  );
 }

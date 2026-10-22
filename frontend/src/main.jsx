@@ -21,6 +21,7 @@ import { productsLoader } from "./components/Home.jsx";
 import { contactAction } from "./components/Contact.jsx";
 import { CartProvider } from "./store/cart-context.jsx";
 import { AuthProvider } from "./store/auth-context.jsx";
+import CheckoutForm from "./components/CheckoutForm.jsx";
 
 const routeDefenitions = createRoutesFromElements(
   <Route path="/" element={<App />} errorElement={<ErrorPage />}>
@@ -30,6 +31,7 @@ const routeDefenitions = createRoutesFromElements(
     <Route path="/contact" element={<Contact />} action={contactAction} />
     <Route path="/login" element={<Login />} action={loginAction} />
     <Route path="/cart" element={<Cart />} />
+    <Route path="/checkout" element={<CheckoutForm />} />
     <Route path="/products/:productId" element={<ProductDetail />} />
   </Route>,
 );

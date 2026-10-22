@@ -4,7 +4,7 @@ import java.nio.charset.StandardCharsets;
 
 import javax.crypto.SecretKey;
 
-import org.apache.catalina.User;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.core.env.Environment;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;

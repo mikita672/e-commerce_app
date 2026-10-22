@@ -18,11 +18,13 @@ import com.mdzvtt.ecommerce.dto.UserDto;
 import com.mdzvtt.ecommerce.util.JwtUtil;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
+@Slf4j
 public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtUtil;
@@ -37,15 +39,14 @@ public class AuthController {
             userDto.setName(loggedInUser.getUsername());
             String jwtToken = jwtUtil.genereateJwtToken(authentication);
 
-            jwtUtil.genereateJwtToken(authentication);
-
             return ResponseEntity.status(HttpStatus.OK)
-                    .body(new LoginResponseDto(HttpStatus.OK.getReasonPhrase(), userDto, null));
+                    .body(new LoginResponseDto(HttpStatus.OK.getReasonPhrase(), userDto, jwtToken));
         } catch (BadCredentialsException ex) {
             return buildErrorResponse(HttpStatus.UNAUTHORIZED, "Invalid username or password");
         } catch (AuthenticationException ex) {
             return buildErrorResponse(HttpStatus.UNAUTHORIZED, "Authentication failed");
         } catch (Exception ex) {
+            log.error("Login failed", ex);
             return buildErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, "An unexpected error occured");
         }
     }
