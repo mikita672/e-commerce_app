@@ -6,6 +6,7 @@ import {
   useActionData,
   useNavigation,
   useNavigate,
+  useLocation,
 } from "react-router-dom";
 import apiClient from "../api/apiClient";
 import { toast } from "react-toastify";
@@ -16,17 +17,19 @@ export default function Login() {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   const navigate = useNavigate();
+  const location = useLocation();
 
   const { loginSuccess } = useAuth();
+  const from = location.state?.from?.pathname || "/home";
 
   useEffect(() => {
     if (actionData?.success) {
       loginSuccess(actionData.jwtToken, actionData.user);
-      navigate("/home");
+      navigate(from, { replace: true });
     } else if (actionData?.error) {
       toast.error(actionData.error.message || "Login failed");
     }
-  }, [actionData]);
+  }, [actionData, from, loginSuccess, navigate]);
 
   const labelStyle =
     "block text-lg font-semibold text-primary dark:text-light mb-2";
