@@ -1,4 +1,10 @@
-import { createContext, useEffect, useContext, useReducer } from "react";
+import {
+  createContext,
+  useEffect,
+  useContext,
+  useReducer,
+  useCallback,
+} from "react";
 
 export const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
@@ -67,13 +73,13 @@ export const AuthProvider = ({ children }) => {
     }
   }, [authState]);
 
-  const loginSuccess = (jwtToken, user) => {
+  const loginSuccess = useCallback((jwtToken, user) => {
     dispatch({ type: LOGIN_SUCCESS, payload: { jwtToken, user } });
-  };
+  }, []);
 
-  const logout = () => {
+  const logout = useCallback(() => {
     dispatch({ type: LOGOUT });
-  };
+  }, []);
 
   return (
     <AuthContext.Provider
