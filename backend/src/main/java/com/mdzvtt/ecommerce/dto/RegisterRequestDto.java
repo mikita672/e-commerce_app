@@ -17,7 +17,7 @@ public class RegisterRequestDto {
     private String email;
 
     @NotBlank(message = "Mobile number is required")
-    @Pattern(regexp = "^\\d{10}$", message = "Mobile number must be exactly 9 digits")
+    @Pattern(regexp = "^\\d{9}$", message = "Mobile number must be exactly 9 digits")
     private String mobileNumber;
 
     @NotBlank(message = "Password is required")

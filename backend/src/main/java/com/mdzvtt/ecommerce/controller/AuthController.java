@@ -61,7 +61,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@Valid RegisterRequestDto registerRequestDto) {
+    public ResponseEntity<String> registerUser(@Valid @RequestBody RegisterRequestDto registerRequestDto) {
         inMemoryUserDetailsManager.createUser(new User(registerRequestDto.getEmail(),
                 passwordEncoder.encode(registerRequestDto.getPassword()), List.of(new SimpleGrantedAuthority("User"))));
         return ResponseEntity.status(HttpStatus.CREATED).body("Registration successful");
