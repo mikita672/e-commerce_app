@@ -27,6 +27,7 @@ import Profile from "./components/Profile.jsx";
 import Orders from "./components/Orders.jsx";
 import AdminMessages from "./components/admin/AdminMessages.jsx";
 import AdminOrders from "./components/admin/AdminOrders.jsx";
+import Register, { registerAction } from "./components/Register.jsx";
 
 const routeDefenitions = createRoutesFromElements(
   <Route path="/" element={<App />} errorElement={<ErrorPage />}>
@@ -35,6 +36,7 @@ const routeDefenitions = createRoutesFromElements(
     <Route path="/about" element={<About />} />
     <Route path="/contact" element={<Contact />} action={contactAction} />
     <Route path="/login" element={<Login />} action={loginAction} />
+    <Route path="/register" element={<Register />} action={registerAction} />
     <Route path="/cart" element={<Cart />} />
     <Route path="/products/:productId" element={<ProductDetail />} />
     <Route element={<ProtectedRoute />}>
